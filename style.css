@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= MAIN BACKGROUND ================= */
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("bg.jpg") center/cover no-repeat;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  background: rgba(38, 8, 1, 0.6);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* LOGO */
+
+.logo {
+  font-size: 40px;
+  font-family: "Lavishly Yours", cursive;
+  color: #f2c12e;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  font-size: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #f2c12e;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #f2911b;
+}
+
+/* SEARCH */
+
+.search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #f2c12e;
+  border-radius: 10px;
+  overflow: hidden; /* important */
+}
+
+/* ICON */
+.search-icon {
+  padding: 8px 12px;
+  color: #f2c12e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* INPUT */
+.search input {
+  width: 200px;
+  padding: 8px 12px;
+  border: none;
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  background: transparent;
+  color: white;
+  flex: 1;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+/* BUTTON */
+.search button {
+  padding: 8px 18px;
+  border: none;
+  background: #f2c12e;
+  border: 3px solid #f2c12e;
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: #260801;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search button:hover {
+  background: #f2911b;
+  border: 3px solid #f2911b;
+}
+
+/* ================= HERO CONTENT ================= */
+
+.content {
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 120px;
+  color: white;
+}
+
+/* HERO HEADING */
+
+h1 {
+  font-family: "Georgia", serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: #f2c12e;
+  line-height: 1.1;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+  margin-bottom: 20px;
+}
+
+/* Script words only */
+h1 .script {
+  font-family: "Lavishly Yours", cursive;
+  font-size: 100px;
+  font-weight: normal;
+  color: #f2911b;
+  letter-spacing: 2px;
+}
+
+/* DESCRIPTION */
+
+.description {
+  max-width: 650px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.description p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #f2c12e;
+  margin-bottom: 15px;
+}
+
+.description strong {
+  color: #f2911b;
+}
+
+.description em {
+  color: #ff5e00;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* HERO BUTTON */
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: #d95204;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: #f2911b;
+}
+
+/* VERTICAL SEMI-CIRCLE ORDER BUTTON */
+
+.order-now {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: uppercase;
+
+  background: #d95204;
+  color: white;
+  text-decoration: none;
+
+  padding: 25px 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  writing-mode: vertical-rl;
+  text-orientation: upright; /* <-- ADD THIS */
+
+  border-radius: 40px 0 0 40px;
+  box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.5);
+
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.order-now:hover {
+  background: #f2911b;
+  padding-right: 25px;
+}
