@@ -18,42 +18,73 @@
             <div class="logo">Bread & Butter</div>
 
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
 
             <div class="search">
                 <span class="search-icon">🔍</span>
-                <input type="text" placeholder="Search here">
-                <button>Search</button>
+                <input type="text" id="searchInput" placeholder="Search here">
+                <button id="searchBtn">Search</button>
             </div>
         </div>
 
         <!-- HERO CONTENT -->
         <div class="content">
-            <h1>
-                Baked with <span class="script">Love</span>,<br>
-                <span class="script">Spread</span> with Care...
-            </h1>
 
-            <div class="description">
-                <p>
-                    At <strong>Bread &amp; Butter</strong>, we believe food is more than a meal —
-                    <em>it’s a feeling.</em>
-                </p>
-                <p>
-                    Our breads are baked fresh every day, and every spread is prepared with
-                    patience and passion, creating moments you’ll want to savor again and again.
-                </p>
+            <div class="text-content">
 
-                <a href="#" class="hero-btn">Explore Menu</a>
+                <h1>
+                    Baked with <span class="script">Love</span>,<br>
+                    <span class="script">Spread</span> with Care...
+                </h1>
+
+                <div class="description">
+                    <p>
+                        At <strong>Bread & Butter</strong>, we believe food is more than a meal —
+                        <em>it’s a feeling.</em>
+                    </p>
+
+                    <p>
+                        Our breads are baked fresh every day, and every spread is prepared with patience and passion,
+                        creating moments you’ll want to savor again and again.
+                    </p>
+
+                    <a href="#" class="hero-btn">Explore Menu</a>
+
+                </div>
+
             </div>
+
+            <div class="image-slider">
+                <img src="assets/img1.jpg" class="active">
+                <img src="assets/img2.jpg">
+                <img src="assets/img3.jpg">
+                <img src="assets/img4.jpg">
+            </div>
+
         </div>
 
-    </div>
+        <!-- JAVASCRIPT -->
+        <script>
+
+            //image slider
+            const images = document.querySelectorAll(".image-slider img");
+            let index = 0;
+            function changeImage() {
+                images[index].classList.remove("active");
+                index++;
+                if (index >= images.length) {
+                    index = 0;
+                }
+                images[index].classList.add("active");
+            }
+            setInterval(changeImage, 5000);
+
+        </script>
 
 </body>
 
