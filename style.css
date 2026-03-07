@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lavishly+Yours&family=Ruthie&display=swap");
 
 * {
   margin: 0;
@@ -39,7 +39,7 @@ body {
 
 .logo {
   font-size: 40px;
-  font-family: "Lavishly Yours", cursive;
+  font-family: "Ruthie", cursive;
   color: #f2c12e;
 }
 
@@ -205,8 +205,8 @@ h1 .script {
 /* ================= ORDER ================= */
 
 .order {
-  padding: 120px 80px;
-  animation: slideBottom 1.2s ease forwards;
+  padding: 80px 80px;
+  transform: translateY(80px);
 }
 
 .order-page {
@@ -451,38 +451,39 @@ h1 .script {
   }
 }
 
-/* ================= MENU ================= */
+/* ================= SECTION TITLE ================= */
 
-.menu {
-  padding: 100px 80px;
-  width: 100%;
-  min-height: 100vh;
-}
-
-.menu-title {
+.section-title {
   text-align: center;
   animation: slideBottom 1.2s ease forwards;
 }
 
-.menu-title h2 {
+.section-title h2 {
   margin-bottom: 2px;
   text-align: center;
   font-size: 45px;
   color: #f6c343;
-  font-family: "Lavishly Yours", cursive;
+  font-family: "Dancing Script", cursive;
   animation: slideBottom 1.2s ease forwards;
 }
 
-.menu-title p {
+.section-title p {
   color: #bd7216;
   font-family: cursive;
   font-size: 18px;
 }
 
+/* ================= MENU ================= */
+
+.menu {
+  padding: 80px 80px;
+  transform: translateY(80px);
+}
+
 .menu-category h3 {
   font-size: 36px;
   color: #ff8c00;
-  font-family: cursive;
+  font-family: "Dancing Script", cursive;
   padding-top: 100px;
   margin-bottom: 25px;
   border-bottom: 1px solid #e0d6c8;
@@ -562,14 +563,6 @@ h1 .script {
 
 /* ================= ABOUT ================= */
 
-.section-title {
-  text-align: center;
-  font-size: 45px;
-  color: #f6c343;
-  margin-bottom: 60px;
-  font-family: "Lavishly Yours", cursive;
-}
-
 /* CHEF CARDS */
 
 .chefs,
@@ -580,6 +573,7 @@ h1 .script {
 
 .chef-grid {
   display: flex;
+  padding-top: 50px;
   gap: 40px;
   justify-content: center;
 }
@@ -611,6 +605,7 @@ h1 .script {
 
 .timeline-container {
   display: flex;
+  padding-top: 50px;
   justify-content: space-between;
 }
 
@@ -629,6 +624,7 @@ h1 .script {
 
 .ingredient-grid {
   display: flex;
+  padding-top: 50px;
   justify-content: center;
   gap: 40px;
 }
@@ -654,15 +650,15 @@ h1 .script {
 /* ================= GALLERY ================= */
 
 .gallery {
-  padding: 120px 80px;
+  padding: 80px 80px;
   transform: translateY(80px);
-  animation: slideBottom 1.2s ease forwards;
 }
 
 /* GRID */
 
 .gallery-grid {
   display: grid;
+  padding-top: 100px;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 200px;
   gap: 20px;
@@ -706,16 +702,17 @@ h1 .script {
 /* ================= CONTACT ================= */
 
 .contact {
-  padding: 120px 80px;
-  animation: slideBottom 1.2s ease forwards;
+  padding: 80px 80px;
+  transform: translateY(80px);
 }
 
 .contact-container {
   display: flex;
   gap: 60px;
   justify-content: space-between;
-  margin-top: 60px;
+  margin-top: 100px;
   padding-bottom: 100px;
+  animation: slideBottom 1.2s ease forwards;
 }
 
 /* CONTACT INFO */
@@ -795,21 +792,68 @@ h1 .script {
 /* TEXT */
 .contact-text {
   flex: 1;
-  padding-top: 50px;
   color: #f2c12e;
 }
 
 .contact-text h3 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  font-family: cursive;
+  margin-bottom: 2px;
+  padding-top: 50px;
+  font-size: 45px;
   color: #f6c343;
+  font-family: "Dancing Script", cursive;
+  animation: slideBottom 1.2s ease forwards;
 }
 
 .contact-text p {
   line-height: 1.8;
   margin-bottom: 15px;
   color: #f5e4c9;
+}
+
+/* ================= FAQ ================= */
+
+.faq {
+  padding: 120px 80px;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 60px auto 0;
+}
+
+.faq-item {
+  background: #e3ceb5;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.faq-item:hover {
+  background: #ffca89;
+}
+
+.faq-question {
+  padding: 18px 22px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 22px;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+/* open state */
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 15px 22px 20px;
 }
 
 /* ================= FOOTER ================= */
