@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now - Bread & Butter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <!-- NAVBAR -->
+
+        <div class="navbar">
+
+            <div class="logo">Bread & Butter</div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </div>
+
+        <!-- ORDER SECTION -->
+
+        <section class="order">
+
+            <h2 class="section-title">Order Now</h2>
+
+            <div class="order-page">
+
+                <!-- LEFT SIDE -->
+
+                <div class="menu-area">
+
+                    <div class="food-grid">
+
+                        <div class="food-card style=" --i:1">
+                            <h3>Classic White Bread 🟢</h3>
+                            <p class="price">₹40</p>
+                            <div class="controls" id="Classic White Bread-controls">
+                                <button class="add-btn" onclick="addItem('Classic White Bread',40)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:2">
+                            <h3>Whole Wheat Bread 🟢</h3>
+                            <p class="price">₹50</p>
+                            <div class="controls" id="Whole Wheat Bread-controls">
+                                <button class="add-btn" onclick="addItem('Whole Wheat Bread',50)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:3">
+                            <h3>Multigrain Bread 🟢</h3>
+                            <p class="price">₹60</p>
+                            <div class="controls" id="Multigrain Bread-controls">
+                                <button class="add-btn" onclick="addItem('Multigrain Bread',60)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:4">
+                            <h3>Sourdough Bread 🟢</h3>
+                            <p class="price">₹120</p>
+                            <div class="controls" id="Sourdough Bread-controls">
+                                <button class="add-btn" onclick="addItem('Sourdough Bread',120)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:5">
+                            <h3>Chocolate Truffle Cake 🟢</h3>
+                            <p class="price">₹450</p>
+                            <div class="controls" id="Chocolate Truffle Cake-controls">
+                                <button class="add-btn" onclick="addItem('Chocolate Truffle Cake',450)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:6">
+                            <h3>Red Velvet Cake 🟢</h3>
+                            <p class="price">₹520</p>
+                            <div class="controls" id="Red Velvet Cake-controls">
+                                <button class="add-btn" onclick="addItem('Red Velvet Cake',520)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:7">
+                            <h3>Vanilla Cream Cake 🟢</h3>
+                            <p class="price">₹400</p>
+                            <div class="controls" id="Vanilla Cream Cake-controls">
+                                <button class="add-btn" onclick="addItem('Vanilla Cream Cake',400)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:8">
+                            <h3>Black Forest Cake 🟢</h3>
+                            <p class="price">₹450</p>
+                            <div class="controls" id="Black Forest Cake-controls">
+                                <button class="add-btn" onclick="addItem('Black Forest Cake',450)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:9">
+                            <h3>Chocolate Pastry 🟢</h3>
+                            <p class="price">₹90</p>
+                            <div class="controls" id="Chocolate Pastry-controls">
+                                <button class="add-btn" onclick="addItem('Chocolate Pastry',90)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:10">
+                            <h3>Chicken Cheese Croissant 🔴</h3>
+                            <p class="price">₹140</p>
+                            <div class="controls" id="Chicken Cheese Croissant-controls">
+                                <button class="add-btn" onclick="addItem('Chicken Cheese Croissant',140)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:11">
+                            <h3>Red Velvet Pastry 🟢</h3>
+                            <p class="price">₹110</p>
+                            <div class="controls" id="Red Velvet Pastry-controls">
+                                <button class="add-btn" onclick="addItem('Red Velvet Pastry',110)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:12">
+                            <h3>Butterscotch Pastry 🟢</h3>
+                            <p class="price">₹95</p>
+                            <div class="controls" id="Butterscotch Pastry-controls">
+                                <button class="add-btn" onclick="addItem('Butterscotch Pastry',95)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:13">
+                            <h3>Chocolate Chip Cookies 🟢</h3>
+                            <p class="price">₹70</p>
+                            <div class="controls" id="Chocolate Chip Cookies-controls">
+                                <button class="add-btn" onclick="addItem('Chocolate Chip Cookies',70)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:14">
+                            <h3>Butter Cookies 🟢</h3>
+                            <p class="price">₹60</p>
+                            <div class="controls" id="Butter Cookies-controls">
+                                <button class="add-btn" onclick="addItem('Butter Cookies',60)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:15">
+                            <h3>Oatmeal Cookies 🟢</h3>
+                            <p class="price">₹75</p>
+                            <div class="controls" id="Oatmeal Cookies-controls">
+                                <button class="add-btn" onclick="addItem('Oatmeal Cookies',75)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:16">
+                            <h3>Double Chocolate Cookies 🟢</h3>
+                            <p class="price">₹90</p>
+                            <div class="controls" id="Double Chocolate Cookies-controls">
+                                <button class="add-btn" onclick="addItem('Double Chocolate Cookies',90)">+ Add to
+                                    Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:17">
+                            <h3>Veg Puff 🟢</h3>
+                            <p class="price">₹40</p>
+                            <div class="controls" id="Veg Puff-controls">
+                                <button class="add-btn" onclick="addItem('Veg Puff',40)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:18">
+                            <h3>Paneer Puff 🟢</h3>
+                            <p class="price">₹50</p>
+                            <div class="controls" id="Paneer Puff-controls">
+                                <button class="add-btn" onclick="addItem('Paneer Puff',50)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:19">
+                            <h3>Cheese Croissant 🟢</h3>
+                            <p class="price">₹90</p>
+                            <div class="controls" id="Cheese Croissant-controls">
+                                <button class="add-btn" onclick="addItem('Cheese Croissant',90)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:20">
+                            <h3>Chicken Puff 🔴</h3>
+                            <p class="price">₹60</p>
+                            <div class="controls" id="Chicken Puff-controls">
+                                <button class="add-btn" onclick="addItem('Chicken Puff',60)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:21">
+                            <h3>Espresso 🟢</h3>
+                            <p class="price">₹80</p>
+                            <div class="controls" id="Espresso-controls">
+                                <button class="add-btn" onclick="addItem('Espresso',80)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:22">
+                            <h3>Cappuccino 🟢</h3>
+                            <p class="price">₹120</p>
+                            <div class="controls" id="Cappuccino-controls">
+                                <button class="add-btn" onclick="addItem('Cappuccino',120)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:23">
+                            <h3>Latte 🟢</h3>
+                            <p class="price">₹130</p>
+                            <div class="controls" id="Latte-controls">
+                                <button class="add-btn" onclick="addItem('Latte',130)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                        <div class="food-card" style="--i:24">
+                            <h3>Hot Chocolate 🟢</h3>
+                            <p class="price">₹150</p>
+                            <div class="controls" id="Hot Chocolate-controls">
+                                <button class="add-btn" onclick="addItem('Hot Chocolate',150)">+ Add to Order</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CART -->
+
+                <div class="cart">
+
+                    <div class="cart-header">
+                        <h2>🛒 Your Order</h2>
+                        <button class="clear-order" onclick="clearOrder()">Clear</button>
+                    </div>
+
+                    <div id="cartItems">
+                        <p class="empty">Your cart is empty. Add some delicious items!</p>
+                    </div>
+
+                    <div class="cart-footer">
+
+                        <div class="total">
+                            <span>Total</span>
+                            <span id="total">₹0</span>
+                        </div>
+
+                        <button class="place-order" onclick="placeOrder()">Place Order</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- POPUP -->
+
+    <div id="orderPopup" class="order-popup">
+
+        <div class="popup-box">
+            <h2>✅ Order Placed!</h2>
+            <p>Your delicious order is being prepared.</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Left Section -->
+            <div class="footer-left">
+                <h1 class="logo">Bread & Butter</h1>
+                <p class="tagline">
+                    "Baked with love, served with warmth — where every bite feels like home."
+                </p>
+
+                <h3 class="message-title">Drop a Message</h3>
+
+                <div class="form">
+                    <div class="form-left">
+                        <input type="text" placeholder="Your Name">
+                        <input type="email" placeholder="Email">
+                    </div>
+
+                    <textarea placeholder="Your Message"></textarea>
+                </div>
+
+                <button class="send-btn">Send</button>
+            </div>
+
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+
+            <!-- Visit + Social -->
+            <div class="footer-right">
+
+                <div class="visit">
+                    <h3>Visit Us</h3>
+                    <p>123 Bakery Street</p>
+                    <p>Kolkata, West Bengal, India</p>
+                    <p><b>Days:</b> Mon-Sun</p>
+                    <p><b>Open:</b> 8:00 AM</p>
+                    <p><b>Close:</b> 9:00 PM</p>
+                </div>
+
+                <div class="social">
+                    <h3>Follow Us</h3>
+
+                    <div class="icons">
+                        <div class="icon">
+                            <img src="assets/icons/instagram.png"
+                                onclick="window.open('https://instagram.com','_blank')" style="cursor:pointer;">
+                            <p>Instagram</p>
+                        </div>
+
+                        <div class="icon">
+                            <img src="assets/icons/facebook.png" onclick="window.open('https://facebook.com','_blank')"
+                                style="cursor:pointer;">
+                            <p>Facebook</p>
+                        </div>
+
+                        <div class="icon">
+                            <img src="assets/icons/twitter.png" onclick="window.open('https://twitter.com','_blank')"
+                                style="cursor:pointer;">
+                            <p>Twitter</p>
+                        </div>
+
+                        <div class="icon">
+                            <img src="assets/icons/youtube.png" onclick="window.open('https://youtube.com','_blank')"
+                                style="cursor:pointer;">
+                            <p>YouTube</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            <p>© 2026 Bread & Butter Bakery — Freshly Baked Happiness Every Day</p>
+        </div>
+
+    </footer>
+
+    <script>
+
+        let cart = {}
+
+        function addItem(name, price) {
+
+            if (!cart[name]) {
+                cart[name] = { price: price, qty: 1 }
+            } else {
+                cart[name].qty++
+            }
+
+            updateControls(name)
+            renderCart()
+
+        }
+
+        function increase(name) {
+            cart[name].qty++
+            updateControls(name)
+            renderCart()
+        }
+
+        function decrease(name) {
+
+            cart[name].qty--
+
+            if (cart[name].qty <= 0) {
+                delete cart[name]
+                resetControls(name)
+            } else {
+                updateControls(name)
+            }
+
+            renderCart()
+
+        }
+
+        function removeItem(name) {
+            delete cart[name]
+            resetControls(name)
+            renderCart()
+        }
+
+        function updateControls(name) {
+
+            let qty = cart[name].qty
+            let div = document.getElementById(name + "-controls")
+
+            div.innerHTML = `
+<button class="delete-btn" onclick="removeItem('${name}')">🗑</button>
+<button class="qty-btn minus" onclick="decrease('${name}')">−</button>
+<span class="qty-number">${qty}</span>
+<button class="qty-btn" onclick="increase('${name}')">+</button>
+`
+
+        }
+
+        function resetControls(name) {
+
+            let div = document.getElementById(name + "-controls")
+
+            let card = div.closest(".food-card")
+            let price = card.querySelector(".price").innerText.replace("₹", "")
+
+            div.innerHTML = `<button class="add-btn" onclick="addItem('${name}',${price})">+ Add to Order</button>`
+
+        }
+
+        function clearOrder() {
+
+            cart = {}
+
+            renderCart()
+
+            document.querySelectorAll(".controls").forEach(div => {
+
+                const name = div.id.replace("-controls", "")
+                const card = div.closest(".food-card")
+                const price = card.querySelector(".price").innerText.replace("₹", "")
+
+                div.innerHTML = `<button class="add-btn" onclick="addItem('${name}',${price})">+ Add to Order</button>`
+
+            })
+
+        }
+        function renderCart() {
+
+            const cartDiv = document.getElementById("cartItems")
+            const clearBtn = document.querySelector(".clear-order")
+
+            cartDiv.innerHTML = ""
+
+            let total = 0
+
+            for (let item in cart) {
+
+                let qty = cart[item].qty
+                let price = cart[item].price * qty
+
+                total += price
+
+                cartDiv.innerHTML += `
+<div class="cart-item">
+<span>${item} ×${qty}</span>
+<span>₹${price}</span>
+</div>
+`
+
+            }
+
+            if (total === 0) {
+
+                cartDiv.innerHTML = `<p class="empty">Your cart is empty. Add some delicious items!</p>`
+                clearBtn.style.display = "none"
+
+            } else {
+
+                clearBtn.style.display = "inline-block"
+
+            }
+
+            document.getElementById("total").innerText = "₹" + total
+
+        }
+
+        function placeOrder() {
+
+            if (Object.keys(cart).length === 0) {
+                alert("Your cart is empty!")
+                return
+            }
+
+            document.getElementById("orderPopup").style.display = "flex"
+
+            clearOrder()   // reset everything to default
+
+        }
+
+        function closePopup() {
+            document.getElementById("orderPopup").style.display = "none"
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -61,59 +61,6 @@ body {
   color: #f2911b;
 }
 
-/* SEARCH */
-
-.search {
-  display: flex;
-  align-items: center;
-  border: 1px solid #f2c12e;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.search-icon {
-  padding: 8px 12px;
-  color: #f2c12e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.search input {
-  width: 200px;
-  padding: 8px 12px;
-  border: none;
-  font-size: 18px;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
-  background: transparent;
-  color: white;
-  flex: 1;
-}
-
-.search input:focus {
-  outline: none;
-}
-
-.search button {
-  padding: 8px 18px;
-  border: none;
-  background: #f2c12e;
-  border: 3px solid #f2c12e;
-  font-size: 18px;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
-  color: #260801;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.search button:hover {
-  background: #f2911b;
-  border: 3px solid #f2911b;
-}
-
 /* ================= HERO ================= */
 
 .content {
@@ -255,6 +202,255 @@ h1 .script {
   padding-right: 25px;
 }
 
+/* ================= ORDER ================= */
+
+.order {
+  padding: 120px 80px;
+  animation: slideBottom 1.2s ease forwards;
+}
+
+.order-page {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  animation: slideBottom 1.5s ease forwards;
+}
+
+/* FOOD GRID */
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.food-card {
+  background: #e3ceb5;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e6e0d9;
+  animation: slideBottom 1.8s ease forwards;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+.food-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #b26a16;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #eee4d8;
+  color: #b26a16;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: #e2d5c6;
+}
+
+/* CONTROLS ( + - delete buttons ) */
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.qty-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #b26a16;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.qty-btn.minus {
+  background: #ddd;
+  color: #333;
+}
+
+.delete-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #eee;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.qty-number {
+  font-size: 18px;
+  font-weight: bold;
+  width: 20px;
+  text-align: center;
+}
+
+/* CART */
+
+.cart {
+  background: #e3ceb5;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #e6e0d9;
+  height: fit-content;
+}
+
+/* CART HEADER */
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.clear-order {
+  display: none;
+}
+
+.cart-header .clear-order {
+  padding: 6px 14px;
+  border: none;
+  background: #e53935;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cart-header .clear-order:hover {
+  background: #c62828;
+}
+
+/* CART ITEMS */
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.empty {
+  color: #777;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* TOTAL */
+
+.cart-footer {
+  margin-top: 30px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.place-order {
+  width: 100%;
+  padding: 14px;
+  background: #b26a16;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.place-order:hover {
+  background: #9c5d13;
+}
+
+/* ORDER POPUP */
+
+.order-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.popup-box {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  animation: popupScale 0.4s ease;
+}
+
+.popup-box h2 {
+  color: #d97706;
+  margin-bottom: 10px;
+}
+
+.popup-box p {
+  color: #555;
+  font-size: 16px;
+}
+
+.popup-box button {
+  margin-top: 20px;
+  padding: 10px 24px;
+  border: none;
+  background: #d97706;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.popup-box button:hover {
+  background: #b45309;
+}
+
+/* POPUP ANIMATION */
+
+@keyframes popupScale {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /* ================= MENU ================= */
 
 .menu {
@@ -291,6 +487,7 @@ h1 .script {
   margin-bottom: 25px;
   border-bottom: 1px solid #e0d6c8;
   padding-bottom: 10px;
+  animation: slideBottom 1.2s ease forwards;
 }
 
 .menu-grid {
@@ -331,16 +528,17 @@ h1 .script {
   color: #d97706;
 }
 
-.veg {
-  color: green;
+.veg,
+.nonveg {
   font-size: 14px;
   margin-left: 6px;
 }
 
+.veg {
+  color: green;
+}
 .nonveg {
   color: red;
-  font-size: 14px;
-  margin-left: 6px;
 }
 
 .menu-item:nth-child(1) {
@@ -374,7 +572,9 @@ h1 .script {
 
 /* CHEF CARDS */
 
-.chefs {
+.chefs,
+.timeline,
+.ingredients {
   padding: 120px 80px;
 }
 
@@ -409,10 +609,6 @@ h1 .script {
 
 /* TIMELINE */
 
-.timeline {
-  padding: 120px 80px;
-}
-
 .timeline-container {
   display: flex;
   justify-content: space-between;
@@ -430,10 +626,6 @@ h1 .script {
 }
 
 /* INGREDIENTS */
-
-.ingredients {
-  padding: 120px 80px;
-}
 
 .ingredient-grid {
   display: flex;
@@ -474,6 +666,7 @@ h1 .script {
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 200px;
   gap: 20px;
+  animation: slideBottom 1.5s ease forwards;
 }
 
 /* IMAGE STYLE */
@@ -514,6 +707,7 @@ h1 .script {
 
 .contact {
   padding: 120px 80px;
+  animation: slideBottom 1.2s ease forwards;
 }
 
 .contact-container {
@@ -552,9 +746,6 @@ h1 .script {
 }
 
 /* CONTACT FORM */
-.contact {
-  animation: slideBottom 1.2s ease forwards;
-}
 
 .contact-form {
   width: 50%;
@@ -569,9 +760,6 @@ h1 .script {
 
 .contact-form input,
 .contact-form textarea {
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
   background: #f5e4c9;
 }
 
