@@ -124,9 +124,6 @@ body {
   justify-content: flex-start;
   gap: 60px;
   padding: 0 80px;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("assets/bg.jpg") center/cover no-repeat;
-  background-attachment: fixed;
 }
 
 .text-content {
@@ -151,7 +148,7 @@ h1 .script {
   font-size: 100px;
   font-weight: normal;
   color: #f2911b;
-  letter-spacing: 2px;
+  text-shadow: 3px 3px 6px rgba(193, 156, 106, 0.7);
 }
 
 .description {
@@ -264,9 +261,6 @@ h1 .script {
   padding: 100px 80px;
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
-    url("assets/menu_bg.jpg") center/cover no-repeat;
-  background-attachment: fixed;
 }
 
 .menu-title {
@@ -275,21 +269,24 @@ h1 .script {
 }
 
 .menu-title h2 {
-  font-size: 50px;
-  color: #ff8c00;
   margin-bottom: 2px;
+  text-align: center;
+  font-size: 45px;
+  color: #f6c343;
+  font-family: "Lavishly Yours", cursive;
   animation: slideBottom 1.2s ease forwards;
 }
 
 .menu-title p {
   color: #bd7216;
-  font-family: "Lavishly Yours", cursive;
-  font-size: 30px;
+  font-family: cursive;
+  font-size: 18px;
 }
 
 .menu-category h3 {
   font-size: 36px;
   color: #ff8c00;
+  font-family: cursive;
   padding-top: 100px;
   margin-bottom: 25px;
   border-bottom: 1px solid #e0d6c8;
@@ -363,6 +360,103 @@ h1 .script {
 }
 .menu-item:nth-child(6) {
   animation-delay: 1.2s;
+}
+
+/* ================= ABOUT ================= */
+
+.section-title {
+  text-align: center;
+  font-size: 45px;
+  color: #f6c343;
+  margin-bottom: 60px;
+  font-family: "Lavishly Yours", cursive;
+}
+
+/* CHEF CARDS */
+
+.chefs {
+  padding: 120px 80px;
+}
+
+.chef-grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.chef-card {
+  background: #e3ceb5;
+  padding: 25px;
+  border-radius: 20px;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: 0.4s ease;
+}
+
+.chef-card:hover {
+  background: #ffca89;
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 210, 126, 0.5);
+}
+
+.chef-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* TIMELINE */
+
+.timeline {
+  padding: 120px 80px;
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeline-item {
+  width: 200px;
+  text-align: center;
+  color: white;
+}
+
+.timeline-item h3 {
+  color: #f6c343;
+  margin-bottom: 10px;
+}
+
+/* INGREDIENTS */
+
+.ingredients {
+  padding: 120px 80px;
+}
+
+.ingredient-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.ingredient {
+  text-align: center;
+  color: white;
+}
+
+.ingredient img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.chefs,
+.timeline,
+.ingredients {
+  animation: slideBottom 1.2s ease forwards;
 }
 
 /* ================= FOOTER ================= */
