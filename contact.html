@@ -11,10 +11,15 @@
 <body>
 
     <div class="main">
+        <a href="order.html" class="order-now">Order Now</a>
 
         <!-- NAVBAR -->
         <div class="navbar">
             <div class="logo">Bread & Butter</div>
+
+            <div class="menu-toggle" id="menu-toggle">
+                ☰
+            </div>
 
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -67,6 +72,8 @@
 
                 <!-- CONTACT FORM -->
                 <div class="contact-form">
+                    <h4>Feedback</h4>
+
                     <form>
                         <input type="text" placeholder="Your Name" required>
                         <input type="email" placeholder="Your Email" required>
@@ -239,23 +246,29 @@
     </footer>
 
     <script>
+        //menu-toggle
+        const toggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".nav-links");
+        toggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+            if (nav.classList.contains("active")) {
+                toggle.innerHTML = "✕";
+            } else {
+                toggle.innerHTML = "☰";
+            }
+        });
 
+        //faq
         const faqItems = document.querySelectorAll(".faq-item");
-
         faqItems.forEach(item => {
-
             item.addEventListener("click", () => {
-
                 faqItems.forEach(faq => {
                     if (faq !== item) {
                         faq.classList.remove("active");
                     }
                 });
-
                 item.classList.toggle("active");
-
             });
-
         });
 
     </script>

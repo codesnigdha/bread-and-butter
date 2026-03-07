@@ -11,22 +11,24 @@
 <body>
 
     <div class="main">
-
         <a href="order.html" class="order-now">Order Now</a>
-        <header>
-            <!-- NAVBAR -->
-            <div class="navbar">
-                <div class="logo">Bread & Butter</div>
 
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+        <!-- NAVBAR -->
+        <div class="navbar">
+            <div class="logo">Bread & Butter</div>
+
+            <div class="menu-toggle" id="menu-toggle">
+                ☰
             </div>
-        </header>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
 
         <!-- Menu Section -->
         <section class="menu">
@@ -367,6 +369,20 @@
         </div>
 
     </footer>
+
+    <script>
+        //menu-toggle
+        const toggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".nav-links");
+        toggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+            if (nav.classList.contains("active")) {
+                toggle.innerHTML = "✕";
+            } else {
+                toggle.innerHTML = "☰";
+            }
+        });
+    </script>
 
 </body>
 

@@ -13,10 +13,12 @@
     <div class="main">
 
         <!-- NAVBAR -->
-
         <div class="navbar">
-
             <div class="logo">Bread & Butter</div>
+
+            <div class="menu-toggle" id="menu-toggle">
+                ☰
+            </div>
 
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -31,8 +33,10 @@
         <!-- ORDER SECTION -->
 
         <section class="order">
+            <div class="section-title">
+                <h2>Order Now</h2>
+            </div>
 
-            <h2 class="section-title">Order Now</h2>
 
             <div class="order-page">
 
@@ -385,7 +389,19 @@
     </footer>
 
     <script>
+        //menu-toggle
+        const toggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".nav-links");
+        toggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+            if (nav.classList.contains("active")) {
+                toggle.innerHTML = "✕";
+            } else {
+                toggle.innerHTML = "☰";
+            }
+        });
 
+        //add items
         let cart = {}
 
         function addItem(name, price) {

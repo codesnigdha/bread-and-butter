@@ -17,6 +17,10 @@
         <div class="navbar">
             <div class="logo">Bread & Butter</div>
 
+            <div class="menu-toggle" id="menu-toggle">
+                ☰
+            </div>
+
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
@@ -297,6 +301,18 @@
 
     <!-- JAVASCRIPT -->
     <script>
+
+        //menu-toggle
+        const toggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".nav-links");
+        toggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+            if (nav.classList.contains("active")) {
+                toggle.innerHTML = "✕";
+            } else {
+                toggle.innerHTML = "☰";
+            }
+        });
 
         //image slider
         const images = document.querySelectorAll(".image-slider img");
