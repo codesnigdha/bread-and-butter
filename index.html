@@ -74,7 +74,8 @@
 
             <!-- Left Section -->
             <div class="footer-left">
-                <h1 class="logo">Bread & Butter</h1>
+                <div class="logo">Bread & Butter</div>
+
                 <p class="tagline">
                     "Baked with love, served with warmth — where every bite feels like home."
                 </p>
@@ -83,11 +84,11 @@
 
                 <div class="form">
                     <div class="form-left">
-                        <input type="text" placeholder="Your Name">
-                        <input type="email" placeholder="Email">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Email" required>
                     </div>
 
-                    <textarea placeholder="Your Message"></textarea>
+                    <textarea placeholder="Your Message" required></textarea>
                 </div>
 
                 <button class="send-btn">Send</button>
@@ -157,6 +158,17 @@
 
     </footer>
 
+    <div id="messagePopup" class="order-popup">
+
+        <div class="popup-box">
+            <h2>Message Sent!</h2>
+            <p>Your message has been sent successfully.</p>
+            <button onclick="closeMessagePopup()">OK</button>
+        </div>
+
+    </div>
+
+
     <!-- JAVASCRIPT -->
     <script>
         //menu-toggle
@@ -184,6 +196,43 @@
             images[index].classList.add("active");
         }
         setInterval(changeImage, 5000);
+
+
+        // footer form
+        const sendBtn = document.querySelector(".send-btn");
+
+        sendBtn.addEventListener("click", function () {
+
+            const name = document.querySelector('.form input[type="text"]').value.trim();
+            const email = document.querySelector('.form input[type="email"]').value.trim();
+            const message = document.querySelector(".form textarea").value.trim();
+
+            if (!name || !email || !message) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            // show popup
+            document.getElementById("messagePopup").style.display = "flex";
+
+            // disable background scroll
+            document.body.style.overflow = "hidden";
+
+            // clear form
+            document.querySelector('.form input[type="text"]').value = "";
+            document.querySelector('.form input[type="email"]').value = "";
+            document.querySelector(".form textarea").value = "";
+        });
+
+
+        // CLOSE POPUP
+        function closeMessagePopup() {
+
+            document.getElementById("messagePopup").style.display = "none";
+
+            // enable scrolling again
+            document.body.style.overflow = "auto";
+        }
 
     </script>
 

@@ -79,30 +79,51 @@
         </section>
 
         <section class="chefs">
+
             <div class="section-title">
                 <h2>Meet Our Bakers</h2>
             </div>
+
             <div class="chef-grid">
 
-                <div class="chef-card">
+                <div class="chef-card" data-name="Chef Arjun" data-gender="Male" data-age="38"
+                    data-special="Artisan Bread" data-exp="12 Years"
+                    data-bio="Chef Arjun is passionate about traditional bread baking and specializes in sourdough and rustic loaves."
+                    data-img="assets/chefs/chef1.jpg">
+
                     <img src="assets/chefs/chef1.jpg">
                     <h3>Chef Arjun</h3>
                     <p>Master Baker with 12 years of experience in artisan bread.</p>
                 </div>
 
-                <div class="chef-card">
+
+                <div class="chef-card" data-name="Chef Meera" data-gender="Female" data-age="34"
+                    data-special="Pastries & Croissants" data-exp="10 Years"
+                    data-bio="Chef Meera creates delicate pastries and buttery croissants using traditional French baking techniques."
+                    data-img="assets/chefs/chef2.jpg">
+
                     <img src="assets/chefs/chef2.jpg">
                     <h3>Chef Meera</h3>
                     <p>Pastry expert specializing in croissants and desserts.</p>
                 </div>
 
-                <div class="chef-card">
+
+                <div class="chef-card" data-name="Chef Rahul" data-gender="Male" data-age="36"
+                    data-special="Modern Bakery Desserts" data-exp="11 Years"
+                    data-bio="Chef Rahul blends creativity with baking science to design unique cakes and desserts loved by customers."
+                    data-img="assets/chefs/chef3.jpg">
+
                     <img src="assets/chefs/chef3.jpg">
                     <h3>Chef Rahul</h3>
                     <p>Creative baker crafting modern bakery delights.</p>
                 </div>
 
-                <div class="chef-card">
+
+                <div class="chef-card" data-name="Chef Anita" data-gender="Female" data-age="32"
+                    data-special="Cupcakes & Decorative Cakes" data-exp="9 Years"
+                    data-bio="Chef Anita specializes in beautifully decorated cupcakes and celebration cakes with artistic designs."
+                    data-img="assets/chefs/chef4.jpg">
+
                     <img src="assets/chefs/chef4.jpg">
                     <h3>Chef Anita</h3>
                     <p>Specialist in cupcakes and decorative bakery creations.</p>
@@ -206,17 +227,35 @@
 
         </section>
 
+        <!-- CHEF POPUP -->
+        <div class="chef-popup" id="chefPopup">
+            <div class="chef-popup-box">
+                <span class="close-chef">&times;</span>
+                <img id="chefImage">
+                <h2 id="chefName"></h2>
+                <p><strong>Gender:</strong> <span id="chefGender"></span></p>
+                <p><strong>Age:</strong> <span id="chefAge"></span></p>
+                <p><strong>Specialization:</strong> <span id="chefSpecial"></span></p>
+                <p><strong>Experience:</strong> <span id="chefExp"></span></p>
+                <div class="bio">
+                    <p id="chefBio"></p>
+                </div>
 
+            </div>
+
+        </div>
 
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
 
         <div class="footer-container">
 
             <!-- Left Section -->
             <div class="footer-left">
-                <h1 class="logo">Bread & Butter</h1>
+                <div class="logo">Bread & Butter</div>
+
                 <p class="tagline">
                     "Baked with love, served with warmth — where every bite feels like home."
                 </p>
@@ -225,11 +264,11 @@
 
                 <div class="form">
                     <div class="form-left">
-                        <input type="text" placeholder="Your Name">
-                        <input type="email" placeholder="Email">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Email" required>
                     </div>
 
-                    <textarea placeholder="Your Message"></textarea>
+                    <textarea placeholder="Your Message" required></textarea>
                 </div>
 
                 <button class="send-btn">Send</button>
@@ -299,6 +338,17 @@
 
     </footer>
 
+    <div id="messagePopup" class="order-popup">
+
+        <div class="popup-box">
+            <h2>Message Sent!</h2>
+            <p>Your message has been sent successfully.</p>
+            <button onclick="closeMessagePopup()">OK</button>
+        </div>
+
+    </div>
+
+
     <!-- JAVASCRIPT -->
     <script>
 
@@ -314,6 +364,58 @@
             }
         });
 
+        //chef
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const chefCards = document.querySelectorAll(".chef-card");
+            const popup = document.getElementById("chefPopup");
+
+            const chefName = document.getElementById("chefName");
+            const chefGender = document.getElementById("chefGender");
+            const chefAge = document.getElementById("chefAge");
+            const chefSpecial = document.getElementById("chefSpecial");
+            const chefExp = document.getElementById("chefExp");
+            const chefBio = document.getElementById("chefBio");
+            const chefImage = document.getElementById("chefImage");
+
+            const closeBtn = document.querySelector(".close-chef");
+
+
+            chefCards.forEach(card => {
+
+                card.addEventListener("click", () => {
+
+                    chefName.textContent = card.dataset.name;
+                    chefGender.textContent = card.dataset.gender;
+                    chefAge.textContent = card.dataset.age;
+                    chefSpecial.textContent = card.dataset.special;
+                    chefExp.textContent = card.dataset.exp;
+                    chefBio.textContent = card.dataset.bio;
+                    chefImage.src = card.dataset.img;
+
+                    popup.style.display = "flex";
+
+                    document.body.style.overflow = "hidden";   // disable scroll
+                });
+
+            });
+
+
+            closeBtn.addEventListener("click", () => {
+                popup.style.display = "none";
+                document.body.style.overflow = "auto";      // enable scroll
+            });
+
+
+            popup.addEventListener("click", (e) => {
+                if (e.target === popup) {
+                    popup.style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+            });
+
+        });
+
         //image slider
         const images = document.querySelectorAll(".image-slider img");
         let index = 0;
@@ -327,7 +429,76 @@
         }
         setInterval(changeImage, 5000);
 
+
+        //scroll trigger
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const groups = [
+                document.querySelectorAll(".chef-card"),
+                document.querySelectorAll(".timeline-item"),
+                document.querySelectorAll(".ingredient")
+            ];
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+
+                        const items = entry.target.querySelectorAll(".chef-card, .timeline-item, .ingredient");
+
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add("show");
+                            }, index * 150);
+                        });
+
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll(".chefs, .timeline, .ingredients")
+                .forEach(section => observer.observe(section));
+
+        });
+
+
+        // footer form
+        const sendBtn = document.querySelector(".send-btn");
+
+        sendBtn.addEventListener("click", function () {
+
+            const name = document.querySelector('.form input[type="text"]').value.trim();
+            const email = document.querySelector('.form input[type="email"]').value.trim();
+            const message = document.querySelector(".form textarea").value.trim();
+
+            if (!name || !email || !message) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            // show popup
+            document.getElementById("messagePopup").style.display = "flex";
+
+            // disable background scroll
+            document.body.style.overflow = "hidden";
+
+            // clear form
+            document.querySelector('.form input[type="text"]').value = "";
+            document.querySelector('.form input[type="email"]').value = "";
+            document.querySelector(".form textarea").value = "";
+        });
+
+
+        // CLOSE POPUP
+        function closeMessagePopup() {
+
+            document.getElementById("messagePopup").style.display = "none";
+
+            // enable scrolling again
+            document.body.style.overflow = "auto";
+        }
+
     </script>
+
 </body>
 
 </html>

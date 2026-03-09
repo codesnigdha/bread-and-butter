@@ -37,7 +37,6 @@
                 <h2>Order Now</h2>
             </div>
 
-
             <div class="order-page">
 
                 <!-- LEFT SIDE -->
@@ -46,7 +45,7 @@
 
                     <div class="food-grid">
 
-                        <div class="food-card style=" --i:1">
+                        <div class="food-card" style="--i:1">
                             <h3>Classic White Bread 🟢</h3>
                             <p class="price">₹40</p>
                             <div class="controls" id="Classic White Bread-controls">
@@ -251,35 +250,35 @@
                     </div>
                 </div>
 
-                <!-- CART -->
-
-                <div class="cart">
-
-                    <div class="cart-header">
-                        <h2>🛒 Your Order</h2>
-                        <button class="clear-order" onclick="clearOrder()">Clear</button>
-                    </div>
-
-                    <div id="cartItems">
-                        <p class="empty">Your cart is empty. Add some delicious items!</p>
-                    </div>
-
-                    <div class="cart-footer">
-
-                        <div class="total">
-                            <span>Total</span>
-                            <span id="total">₹0</span>
-                        </div>
-
-                        <button class="place-order" onclick="placeOrder()">Place Order</button>
-
-                    </div>
-
-                </div>
-
             </div>
 
         </section>
+
+        <!-- CART -->
+
+        <div class="cart">
+
+            <div class="cart-header">
+                <h2>🛒 Your Order</h2>
+                <button class="clear-order" onclick="clearOrder()">Clear</button>
+            </div>
+
+            <div id="cartItems">
+                <p class="empty">Your cart is empty. Add some delicious items!</p>
+            </div>
+
+            <div class="cart-footer">
+
+                <div class="total">
+                    <span>Total</span>
+                    <span id="total">₹0</span>
+                </div>
+
+                <button class="place-order" onclick="placeOrder()">Place Order</button>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -302,7 +301,8 @@
 
             <!-- Left Section -->
             <div class="footer-left">
-                <h1 class="logo">Bread & Butter</h1>
+                <div class="logo">Bread & Butter</div>
+
                 <p class="tagline">
                     "Baked with love, served with warmth — where every bite feels like home."
                 </p>
@@ -311,11 +311,11 @@
 
                 <div class="form">
                     <div class="form-left">
-                        <input type="text" placeholder="Your Name">
-                        <input type="email" placeholder="Email">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Email" required>
                     </div>
 
-                    <textarea placeholder="Your Message"></textarea>
+                    <textarea placeholder="Your Message" required></textarea>
                 </div>
 
                 <button class="send-btn">Send</button>
@@ -388,6 +388,18 @@
 
     </footer>
 
+    <div id="messagePopup" class="order-popup">
+
+        <div class="popup-box">
+            <h2>Message Sent!</h2>
+            <p>Your message has been sent successfully.</p>
+            <button onclick="closeMessagePopup()">OK</button>
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
     <script>
         //menu-toggle
         const toggle = document.querySelector(".menu-toggle");
@@ -401,146 +413,225 @@
             }
         });
 
-        //add items
-        let cart = {}
 
+        // CART OBJECT
+        let cart = {};
+        const cartBox = document.querySelector(".cart");
+
+
+        // ADD ITEM
         function addItem(name, price) {
 
             if (!cart[name]) {
-                cart[name] = { price: price, qty: 1 }
+                cart[name] = { price: price, qty: 1 };
             } else {
-                cart[name].qty++
+                cart[name].qty++;
             }
 
-            updateControls(name)
-            renderCart()
-
+            updateControls(name);
+            renderCart();
         }
 
+
+        // INCREASE QTY
         function increase(name) {
-            cart[name].qty++
-            updateControls(name)
-            renderCart()
+            if (cart[name]) {
+                cart[name].qty++;
+                updateControls(name);
+                renderCart();
+            }
         }
 
+
+        // DECREASE QTY
         function decrease(name) {
 
-            cart[name].qty--
+            if (!cart[name]) return;
+
+            cart[name].qty--;
 
             if (cart[name].qty <= 0) {
-                delete cart[name]
-                resetControls(name)
+                delete cart[name];
+                resetControls(name);
             } else {
-                updateControls(name)
+                updateControls(name);
             }
 
-            renderCart()
-
+            renderCart();
         }
 
+
+        // REMOVE ITEM
         function removeItem(name) {
-            delete cart[name]
-            resetControls(name)
-            renderCart()
+
+            if (!cart[name]) return;
+
+            delete cart[name];
+            resetControls(name);
+            renderCart();
         }
 
+
+        // UPDATE BUTTON CONTROLS
         function updateControls(name) {
 
-            let qty = cart[name].qty
-            let div = document.getElementById(name + "-controls")
+            const div = document.getElementById(name + "-controls");
+            if (!div) return;
+
+            const qty = cart[name].qty;
 
             div.innerHTML = `
 <button class="delete-btn" onclick="removeItem('${name}')">🗑</button>
 <button class="qty-btn minus" onclick="decrease('${name}')">−</button>
 <span class="qty-number">${qty}</span>
 <button class="qty-btn" onclick="increase('${name}')">+</button>
-`
-
+`;
         }
 
+
+        // RESET CONTROLS
         function resetControls(name) {
 
-            let div = document.getElementById(name + "-controls")
+            const div = document.getElementById(name + "-controls");
+            if (!div) return;
 
-            let card = div.closest(".food-card")
-            let price = card.querySelector(".price").innerText.replace("₹", "")
+            const card = div.closest(".food-card");
+            const price = card.querySelector(".price").innerText.replace("₹", "");
 
-            div.innerHTML = `<button class="add-btn" onclick="addItem('${name}',${price})">+ Add to Order</button>`
-
+            div.innerHTML = `
+<button class="add-btn" onclick="addItem('${name}',${price})">
++ Add to Order
+</button>
+`;
         }
 
+
+        // CLEAR ORDER
         function clearOrder() {
 
-            cart = {}
-
-            renderCart()
+            cart = {};
 
             document.querySelectorAll(".controls").forEach(div => {
 
-                const name = div.id.replace("-controls", "")
-                const card = div.closest(".food-card")
-                const price = card.querySelector(".price").innerText.replace("₹", "")
+                const name = div.id.replace("-controls", "");
+                const card = div.closest(".food-card");
+                const price = card.querySelector(".price").innerText.replace("₹", "");
 
-                div.innerHTML = `<button class="add-btn" onclick="addItem('${name}',${price})">+ Add to Order</button>`
+                div.innerHTML = `
+<button class="add-btn" onclick="addItem('${name}',${price})">
++ Add to Order
+</button>
+`;
+            });
 
-            })
-
+            renderCart();
         }
+
+
+        // RENDER CART
         function renderCart() {
 
-            const cartDiv = document.getElementById("cartItems")
-            const clearBtn = document.querySelector(".clear-order")
+            const cartDiv = document.getElementById("cartItems");
+            const clearBtn = document.querySelector(".clear-order");
 
-            cartDiv.innerHTML = ""
+            cartDiv.innerHTML = "";
 
-            let total = 0
+            let total = 0;
 
             for (let item in cart) {
 
-                let qty = cart[item].qty
-                let price = cart[item].price * qty
+                const qty = cart[item].qty;
+                const price = cart[item].price * qty;
 
-                total += price
+                total += price;
 
                 cartDiv.innerHTML += `
 <div class="cart-item">
 <span>${item} ×${qty}</span>
 <span>₹${price}</span>
 </div>
-`
-
+`;
             }
+
 
             if (total === 0) {
 
-                cartDiv.innerHTML = `<p class="empty">Your cart is empty. Add some delicious items!</p>`
-                clearBtn.style.display = "none"
+                cartDiv.innerHTML =
+                    `<p class="empty">Your cart is empty. Add some delicious items!</p>`;
+
+                clearBtn.style.display = "none";
+                cartBox.classList.remove("show");
 
             } else {
 
-                clearBtn.style.display = "inline-block"
+                clearBtn.style.display = "inline-block";
+                cartBox.classList.add("show");
 
             }
 
-            document.getElementById("total").innerText = "₹" + total
-
+            document.getElementById("total").innerText = "₹" + total;
         }
 
+
+        // PLACE ORDER
         function placeOrder() {
 
             if (Object.keys(cart).length === 0) {
-                alert("Your cart is empty!")
-                return
+                alert("Your cart is empty!");
+                return;
             }
 
-            document.getElementById("orderPopup").style.display = "flex"
+            document.getElementById("orderPopup").style.display = "flex";
 
-            clearOrder()   // reset everything to default
+            // stop background scrolling
+            document.body.style.overflow = "hidden";
 
+            clearOrder();
         }
 
+
+        // CLOSE POPUP
         function closePopup() {
-            document.getElementById("orderPopup").style.display = "none"
+            document.getElementById("orderPopup").style.display = "none";
+            // enable scrolling again
+            document.body.style.overflow = "auto";
+        }
+
+
+        // footer form
+        const sendBtn = document.querySelector(".send-btn");
+
+        sendBtn.addEventListener("click", function () {
+
+            const name = document.querySelector('.form input[type="text"]').value.trim();
+            const email = document.querySelector('.form input[type="email"]').value.trim();
+            const message = document.querySelector(".form textarea").value.trim();
+
+            if (!name || !email || !message) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            // show popup
+            document.getElementById("messagePopup").style.display = "flex";
+
+            // disable background scroll
+            document.body.style.overflow = "hidden";
+
+            // clear form
+            document.querySelector('.form input[type="text"]').value = "";
+            document.querySelector('.form input[type="email"]').value = "";
+            document.querySelector(".form textarea").value = "";
+        });
+
+
+        // CLOSE POPUP
+        function closeMessagePopup() {
+
+            document.getElementById("messagePopup").style.display = "none";
+
+            // enable scrolling again
+            document.body.style.overflow = "auto";
         }
 
     </script>
