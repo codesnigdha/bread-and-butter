@@ -68,6 +68,7 @@ body {
 
 .nav-links li a:hover {
   color: #f2911b;
+  font-size: 22px;
 }
 
 .menu-toggle {
@@ -440,22 +441,37 @@ h1 .script {
 
 .food-card {
   background: #e3ceb5;
-  padding: 25px;
+  padding: 28px 25px;
   border-radius: 12px;
-  border: 1px solid #e6e0d9;
-  animation: slideBottom 1.8s ease forwards;
-  animation-delay: calc(var(--i) * 0.1s);
+  align-items: flex-start;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(40px);
+  position: relative;
+  overflow: hidden;
+}
+
+.food-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  gap: 6px;
 }
 
 .food-card h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .price {
   color: #b26a16;
   font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.food-card.show {
+  animation: menuFade 0.8s ease forwards;
+  animation-delay: calc(var(--i) * 0.1s);
 }
 
 .add-btn {
@@ -471,7 +487,8 @@ h1 .script {
 }
 
 .add-btn:hover {
-  background: #e2d5c6;
+  background: #b26a16;
+  color: #eee4d8;
 }
 
 /* CONTROLS ( + - delete buttons ) */
@@ -479,7 +496,7 @@ h1 .script {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .qty-btn {
@@ -487,15 +504,16 @@ h1 .script {
   height: 40px;
   border: none;
   border-radius: 50%;
-  background: #b26a16;
-  color: white;
+  background: #eee4d8;
+  color: #333;
   font-size: 18px;
   cursor: pointer;
 }
 
-.qty-btn.minus {
-  background: #ddd;
-  color: #333;
+.qty-btn.minus:hover,
+.qty-btn.plus:hover {
+  background: #b26a16;
+  color: white;
 }
 
 .delete-btn {
@@ -503,9 +521,18 @@ h1 .script {
   height: 40px;
   border: none;
   border-radius: 50%;
-  background: #eee;
+  background: #eee4d8;
   cursor: pointer;
   font-size: 18px;
+}
+
+.delete-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.delete-btn:hover {
+  background: #e53935;
 }
 
 .qty-number {
@@ -569,7 +596,8 @@ h1 .script {
 }
 
 .cart-header .clear-order:hover {
-  background: #c62828;
+  background: #ae0202;
+  color: white;
 }
 
 /* CART ITEMS */
@@ -962,18 +990,6 @@ h1 .script {
   animation-delay: 1.2s;
 }
 
-/* ANIMATION */
-@keyframes menuFade {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* ================= TABLET ================= */
 @media (max-width: 1024px) {
   .menu {
@@ -992,6 +1008,7 @@ h1 .script {
 
   .menu-item {
     padding: 20px 22px;
+    min-height: 100px;
   }
 
   .menu-item h4 {
@@ -1025,6 +1042,7 @@ h1 .script {
 
   .menu-item {
     padding: 18px 20px;
+    min-height: 85px;
   }
 
   .menu-item h4 {
@@ -1037,6 +1055,10 @@ h1 .script {
 
   .menu-item span {
     font-size: 16px;
+  }
+
+  .menu-item:hover {
+    min-height: 105px;
   }
 }
 
@@ -1053,6 +1075,7 @@ h1 .script {
 
   .menu-item {
     padding: 16px 18px;
+    min-height: 75px;
   }
 
   .menu-item h4 {
@@ -1078,6 +1101,14 @@ h1 .script {
   padding: 120px 80px;
 }
 
+/* initial hidden state */
+.chef-card,
+.timeline-item,
+.ingredient {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
 /* CHEF GRID */
 .chef-grid {
   display: flex;
@@ -1095,9 +1126,6 @@ h1 .script {
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: 0.4s ease;
-
-  opacity: 0;
-  transform: translateY(60px);
 }
 
 .chef-card:hover {
@@ -1124,9 +1152,6 @@ h1 .script {
   width: 200px;
   text-align: center;
   color: white;
-
-  opacity: 0;
-  transform: translateY(60px);
 }
 
 .timeline-item h3 {
@@ -1134,9 +1159,10 @@ h1 .script {
   margin-bottom: 10px;
 }
 
-/* INGREDIENT GRID */
+/* INGREDIENTS GRID */
 .ingredient-grid {
   display: flex;
+  flex-wrap: wrap;
   padding-top: 50px;
   justify-content: center;
   gap: 40px;
@@ -1145,8 +1171,6 @@ h1 .script {
 .ingredient {
   text-align: center;
   color: white;
-  opacity: 0;
-  transform: translateY(60px);
 }
 
 .ingredient img {
@@ -1161,63 +1185,6 @@ h1 .script {
 .timeline-item.show,
 .ingredient.show {
   animation: slideBottom 1s ease forwards;
-}
-
-/* STAGGER EFFECT */ /* initial hidden state */
-.chef-card,
-.timeline-item,
-.ingredient {
-  opacity: 0;
-  transform: translateY(60px);
-}
-
-/* animation + delay */
-.chef-card.show:nth-child(1),
-.timeline-item.show:nth-child(1),
-.ingredient.show:nth-child(1) {
-  animation: slideBottom 1s ease forwards 0.1s;
-}
-
-.chef-card.show:nth-child(2),
-.timeline-item.show:nth-child(2),
-.ingredient.show:nth-child(2) {
-  animation: slideBottom 1s ease forwards 0.2s;
-}
-
-.chef-card.show:nth-child(3),
-.timeline-item.show:nth-child(3),
-.ingredient.show:nth-child(3) {
-  animation: slideBottom 1s ease forwards 0.3s;
-}
-
-.chef-card.show:nth-child(4),
-.timeline-item.show:nth-child(4),
-.ingredient.show:nth-child(4) {
-  animation: slideBottom 1s ease forwards 0.4s;
-}
-
-.ingredient.show:nth-child(5) {
-  animation: slideBottom 1s ease forwards 0.5s;
-}
-
-.ingredient.show:nth-child(6) {
-  animation: slideBottom 1s ease forwards 0.6s;
-}
-
-.ingredient.show:nth-child(7) {
-  animation: slideBottom 1s ease forwards 0.7s;
-}
-
-.ingredient.show:nth-child(8) {
-  animation: slideBottom 1s ease forwards 0.8s;
-}
-
-.ingredient.show:nth-child(9) {
-  animation: slideBottom 1s ease forwards 0.9s;
-}
-
-.ingredient.show:nth-child(10) {
-  animation: slideBottom 1s ease forwards 1s;
 }
 
 .chef-popup {
@@ -1306,7 +1273,6 @@ h1 .script {
 
   /* Ingredients */
   .ingredient-grid {
-    flex-wrap: wrap;
     gap: 30px;
   }
 
@@ -1328,7 +1294,7 @@ h1 .script {
   .chef-grid {
     flex-direction: column;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
   }
 
   .chef-card {
@@ -1339,7 +1305,7 @@ h1 .script {
   .timeline-container {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
   }
 
   .timeline-item {
@@ -1348,8 +1314,6 @@ h1 .script {
 
   /* Ingredients */
   .ingredient-grid {
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 25px;
   }
 
