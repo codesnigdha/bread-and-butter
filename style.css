@@ -27,6 +27,111 @@ body {
   min-height: 100vh;
 }
 
+/* ================================== INTRO SCREEN ================================== */
+/* ================= DESKTOP ================= */
+.intro {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* stack text + button vertically */
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* space between text and button */
+}
+
+#typingText {
+  font-size: 5rem;
+  font-family: "Lavishly Yours", cursive;
+  color: #f2c12e;
+  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* button */
+.enter-btn {
+  padding: 14px 34px;
+  font-size: 18px;
+  font-weight: 500;
+
+  font-family: "Georgia", serif;
+  border-radius: 50px;
+  border: 2px solid #f2c12e;
+
+  background: transparent;
+  color: #f2c12e;
+
+  cursor: pointer;
+  display: none;
+
+  transition: all 0.3s ease;
+}
+
+/* hover effect */
+
+.enter-btn:hover {
+  background: #f2c12e30;
+  color: #f2c12e;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* click effect */
+
+.enter-btn:active {
+  transform: scale(0.96);
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  #typingText {
+    font-size: 3rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .enter-btn {
+    font-size: 14px;
+    padding: 12px 28px;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  #typingText {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .intro {
+    gap: 15px;
+  }
+
+  .enter-btn {
+    font-size: 12px;
+    padding: 10px 24px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 400px) {
+  #typingText {
+    font-size: 1.7rem;
+    white-space: normal; /* allow wrapping */
+  }
+
+  .intro {
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .enter-btn {
+    font-size: 10px;
+    padding: 9px 20px;
+  }
+}
 /* ================================== NAVBAR ================================== */
 /* ================= DESKTOP ================= */
 .navbar {

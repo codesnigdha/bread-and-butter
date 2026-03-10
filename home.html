@@ -13,54 +13,58 @@
     <div class="main">
         <a href="order.html" class="order-now">Order Now</a>
 
-        <header>
-            <!-- NAVBAR -->
-            <div class="navbar">
-                <div class="logo">Bread & Butter</div>
+        <!-- NAVBAR -->
+        <div class="navbar">
+            <div class="logo">Bread & Butter</div>
 
-                <div class="menu-toggle" id="menu-toggle">
-                    ☰
+            <div class="menu-toggle" id="menu-toggle">
+                ☰
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- HERO CONTENT -->
+        <div class="content">
+            <div class="text-content">
+
+                <h1>
+                    Baked with <span class="script">Love</span>,<br>
+                    <span class="script">Spread</span> with Care...
+                </h1>
+
+                <div class="description">
+                    <p>
+                        At <strong>Bread & Butter</strong>, we believe food is more than a meal —
+                        <em>it’s a feeling.</em>
+                    </p>
+
+                    <p>
+                        Our breads are baked fresh every day, and every spread is prepared with patience and passion,
+                        creating moments you’ll want to savor again and again.
+                    </p>
+
+                    <a href="menu.html" class="hero-btn">Explore Menu</a>
+
                 </div>
 
-                <ul class="nav-links">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-
-            </div>
-        </header>
-
-        <!-- Gallery Section -->
-        <section class="gallery">
-            <div class="section-title">
-                <h2>Our Gallery</h2>
-                <p>A visual journey through our freshly baked breads, pastries, and sweet delights.</p>
             </div>
 
-            <div class="gallery-grid">
-
-                <img src="assets/gallery/1.jpg" class="big reveal">
-                <img src="assets/gallery/2.jpg" class="reveal">
-                <img src="assets/gallery/3.jpg" class="reveal">
-                <img src="assets/gallery/4.jpg" class="tall reveal">
-                <img src="assets/gallery/5.jpg" class="reveal">
-                <img src="assets/gallery/6.jpg" class="wide reveal">
-                <img src="assets/gallery/7.jpg" class="reveal">
-                <img src="assets/gallery/8.jpg" class="reveal">
-                <img src="assets/gallery/9.jpg" class="big reveal">
-                <img src="assets/gallery/10.jpg" class="reveal">
-                <img src="assets/gallery/11.jpg" class="reveal">
-                <img src="assets/gallery/12.jpg" class="tall reveal">
-                <img src="assets/gallery/13.jpg" class="tall reveal">
-                <img src="assets/gallery/14.jpg" class="wide reveal">
-                <img src="assets/gallery/15.jpg" class="reveal">
-                <img src="assets/gallery/16.jpg" class="wide reveal">
-
+            <div class="image-slider">
+                <img src="assets/img1.jpg" class="active">
+                <img src="assets/img2.jpg">
+                <img src="assets/img3.jpg">
+                <img src="assets/img4.jpg">
             </div>
-        </section>
+
+        </div>
+
     </div>
 
     <!-- Footer -->
@@ -143,14 +147,11 @@
                                 style="cursor:pointer;">
                             <p>YouTube</p>
                         </div>
+
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
 
         <div class="copyright">
             <p>© 2026 Bread & Butter Bakery — Freshly Baked Happiness Every Day</p>
@@ -171,6 +172,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
+
         //menu-toggle
         const toggle = document.querySelector(".menu-toggle");
         const nav = document.querySelector(".nav-links");
@@ -183,44 +185,19 @@
             }
         });
 
-        //scroll trigger
-        let lastScroll = 0;
 
-        document.addEventListener("DOMContentLoaded", function () {
-
-            const elements = document.querySelectorAll(".reveal");
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-
-                        const currentScroll = window.pageYOffset;
-
-                        entry.target.classList.remove("show-bottom", "show-top");
-
-                        /* first appearance */
-                        if (!entry.target.classList.contains("revealed")) {
-                            entry.target.classList.add("show-bottom");
-                            entry.target.classList.add("revealed");
-                        }
-                        else {
-                            /* detect scroll direction */
-                            if (currentScroll > lastScroll) {
-                                entry.target.classList.add("show-bottom");
-                            } else {
-                                entry.target.classList.add("show-top");
-                            }
-                        }
-
-                        lastScroll = currentScroll;
-
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            elements.forEach(el => observer.observe(el));
-
-        });
+        //image slider
+        const images = document.querySelectorAll(".image-slider img");
+        let index = 0;
+        function changeImage() {
+            images[index].classList.remove("active");
+            index++;
+            if (index >= images.length) {
+                index = 0;
+            }
+            images[index].classList.add("active");
+        }
+        setInterval(changeImage, 5000);
 
 
         // footer form

@@ -6,232 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bread & Butter</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <div class="main">
-        <a href="order.html" class="order-now">Order Now</a>
+    <div class="intro">
 
-        <!-- NAVBAR -->
-        <div class="navbar">
-            <div class="logo">Bread & Butter</div>
+        <p id="typingText"></p>
 
-            <div class="menu-toggle" id="menu-toggle">
-                ☰
-            </div>
-
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- HERO CONTENT -->
-        <div class="content">
-            <div class="text-content">
-
-                <h1>
-                    Baked with <span class="script">Love</span>,<br>
-                    <span class="script">Spread</span> with Care...
-                </h1>
-
-                <div class="description">
-                    <p>
-                        At <strong>Bread & Butter</strong>, we believe food is more than a meal —
-                        <em>it’s a feeling.</em>
-                    </p>
-
-                    <p>
-                        Our breads are baked fresh every day, and every spread is prepared with patience and passion,
-                        creating moments you’ll want to savor again and again.
-                    </p>
-
-                    <a href="menu.html" class="hero-btn">Explore Menu</a>
-
-                </div>
-
-            </div>
-
-            <div class="image-slider">
-                <img src="assets/img1.jpg" class="active">
-                <img src="assets/img2.jpg">
-                <img src="assets/img3.jpg">
-                <img src="assets/img4.jpg">
-            </div>
-
-        </div>
+        <a href="home.html">
+            <button class="enter-btn">Click here to continue</button>
+        </a>
 
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-
-        <div class="footer-container">
-
-            <!-- Left Section -->
-            <div class="footer-left">
-                <div class="logo">Bread & Butter</div>
-
-                <p class="tagline">
-                    "Baked with love, served with warmth — where every bite feels like home."
-                </p>
-
-                <h3 class="message-title">Drop a Message</h3>
-
-                <div class="form">
-                    <div class="form-left">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Email" required>
-                    </div>
-
-                    <textarea placeholder="Your Message" required></textarea>
-                </div>
-
-                <button class="send-btn">Send</button>
-            </div>
-
-
-            <!-- Quick Links -->
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-
-            <!-- Visit + Social -->
-            <div class="footer-right">
-
-                <div class="visit">
-                    <h3>Visit Us</h3>
-                    <p>123 Bakery Street</p>
-                    <p>Kolkata, West Bengal, India</p>
-                    <p><b>Days:</b> Mon-Sun</p>
-                    <p><b>Open:</b> 8:00 AM</p>
-                    <p><b>Close:</b> 9:00 PM</p>
-                </div>
-
-                <div class="social">
-                    <h3>Follow Us</h3>
-
-                    <div class="icons">
-                        <div class="icon">
-                            <img src="assets/icons/instagram.png"
-                                onclick="window.open('https://instagram.com','_blank')" style="cursor:pointer;">
-                            <p>Instagram</p>
-                        </div>
-
-                        <div class="icon">
-                            <img src="assets/icons/facebook.png" onclick="window.open('https://facebook.com','_blank')"
-                                style="cursor:pointer;">
-                            <p>Facebook</p>
-                        </div>
-
-                        <div class="icon">
-                            <img src="assets/icons/twitter.png" onclick="window.open('https://twitter.com','_blank')"
-                                style="cursor:pointer;">
-                            <p>Twitter</p>
-                        </div>
-
-                        <div class="icon">
-                            <img src="assets/icons/youtube.png" onclick="window.open('https://youtube.com','_blank')"
-                                style="cursor:pointer;">
-                            <p>YouTube</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="copyright">
-            <p>© 2026 Bread & Butter Bakery — Freshly Baked Happiness Every Day</p>
-        </div>
-
-    </footer>
-
-    <div id="messagePopup" class="order-popup">
-
-        <div class="popup-box">
-            <h2>Message Sent!</h2>
-            <p>Your message has been sent successfully.</p>
-            <button onclick="closeMessagePopup()">OK</button>
-        </div>
-
-    </div>
-
-
-    <!-- JAVASCRIPT -->
     <script>
-        //menu-toggle
-        const toggle = document.querySelector(".menu-toggle");
-        const nav = document.querySelector(".nav-links");
-        toggle.addEventListener("click", () => {
-            nav.classList.toggle("active");
-            if (nav.classList.contains("active")) {
-                toggle.innerHTML = "✕";
-            } else {
-                toggle.innerHTML = "☰";
-            }
-        });
 
+        const text = "Welcome to Bread & Butter Bakery";
+        let i = 0;
 
-        //image slider
-        const images = document.querySelectorAll(".image-slider img");
-        let index = 0;
-        function changeImage() {
-            images[index].classList.remove("active");
-            index++;
-            if (index >= images.length) {
-                index = 0;
+        function typeWriter() {
+
+            if (i < text.length) {
+                document.getElementById("typingText").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 80);
             }
-            images[index].classList.add("active");
+
+            else {
+                document.querySelector(".enter-btn").style.display = "inline-block";
+            }
+
         }
-        setInterval(changeImage, 5000);
 
+        typeWriter();
 
-        // footer form
-        const sendBtn = document.querySelector(".send-btn");
-
-        sendBtn.addEventListener("click", function () {
-
-            const name = document.querySelector('.form input[type="text"]').value.trim();
-            const email = document.querySelector('.form input[type="email"]').value.trim();
-            const message = document.querySelector(".form textarea").value.trim();
-
-            if (!name || !email || !message) {
-                alert("Please fill all fields.");
-                return;
-            }
-
-            // show popup
-            document.getElementById("messagePopup").style.display = "flex";
-
-            // disable background scroll
-            document.body.style.overflow = "hidden";
-
-            // clear form
-            document.querySelector('.form input[type="text"]').value = "";
-            document.querySelector('.form input[type="email"]').value = "";
-            document.querySelector(".form textarea").value = "";
-        });
-
-
-        // CLOSE POPUP
-        function closeMessagePopup() {
-
-            document.getElementById("messagePopup").style.display = "none";
-
-            // enable scrolling again
-            document.body.style.overflow = "auto";
+        function enterSite() {
+            window.location.href = "home.html";
         }
 
     </script>
