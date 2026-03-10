@@ -1522,6 +1522,59 @@ h1 .script {
   grid-column: span 2;
 }
 
+/* ================= FULLSCREEN PREVIEW ================= */
+
+.gallery-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+
+  /* blur background */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.gallery-preview img {
+  max-width: 90%;
+  max-height: 85%;
+  border: 0.5px solid #f6c343;
+  box-shadow: 0 15px 40px rgba(249, 102, 22, 0.5);
+  border-radius: 15px;
+}
+
+/* CLOSE BUTTON (RIGHT SIDE) */
+
+.close-preview {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 28px;
+  background: #d95204;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.close-preview:hover {
+  background: #f2911b;
+}
+
 /* ================= TABLET ================= */
 @media (max-width: 1024px) {
   .gallery {
@@ -1533,6 +1586,20 @@ h1 .script {
     grid-auto-rows: 170px;
     gap: 15px;
     padding-bottom: 50px;
+  }
+
+  /* full screen image */
+  .gallery-preview img {
+    max-width: 92%;
+    max-height: 80%;
+  }
+
+  .close-preview {
+    top: 25px;
+    right: 30px;
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
   }
 }
 
@@ -1556,6 +1623,28 @@ h1 .script {
     grid-column: span 1;
     grid-row: span 1;
   }
+
+  /* full screen image */
+
+  .gallery-preview {
+    padding: 15px;
+  }
+
+  .gallery-preview img {
+    max-width: 95%;
+    max-height: 75%;
+    border: 0.5px solid #f6c343;
+    box-shadow: 0 15px 40px rgba(249, 102, 22, 0.5);
+    border-radius: 10px;
+  }
+
+  .close-preview {
+    top: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
 }
 
 /* ================= SMALL MOBILE ================= */
@@ -1577,6 +1666,20 @@ h1 .script {
   .tall {
     grid-column: span 1;
     grid-row: span 1;
+  }
+
+  /* full screen image */
+  .gallery-preview img {
+    max-width: 96%;
+    max-height: 70%;
+  }
+
+  .close-preview {
+    top: 15px;
+    right: 15px;
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
   }
 }
 

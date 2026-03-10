@@ -63,6 +63,13 @@
         </section>
     </div>
 
+    <!-- FULLSCREEN GALLERY PREVIEW -->
+    <div id="galleryPreview" class="gallery-preview">
+        <button class="close-preview" onclick="closePreview()">✕</button>
+        <img id="previewImg">
+    </div>
+
+
     <!-- Footer -->
     <footer class="footer">
 
@@ -221,6 +228,35 @@
             elements.forEach(el => observer.observe(el));
 
         });
+
+
+        /* GALLERY FULLSCREEN */
+        const galleryImages = document.querySelectorAll(".gallery-grid img");
+        const preview = document.getElementById("galleryPreview");
+        const previewImg = document.getElementById("previewImg");
+
+        galleryImages.forEach(img => {
+
+            img.addEventListener("click", function () {
+
+                preview.style.display = "flex";
+                previewImg.src = this.src;
+
+                /* disable scroll */
+                document.body.style.overflow = "hidden";
+
+            });
+
+        });
+
+        function closePreview() {
+
+            preview.style.display = "none";
+
+            /* enable scroll */
+            document.body.style.overflow = "auto";
+
+        }
 
 
         // footer form
