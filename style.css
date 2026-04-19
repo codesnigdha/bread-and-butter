@@ -248,8 +248,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 60px;
+  justify-content: space-between;
   padding: 0 80px;
 }
 
@@ -405,7 +404,8 @@ h1 .script {
 .image-slider {
   width: 420px;
   height: 420px;
-  margin-left: 80px;
+  margin-left: auto;
+  margin-right: 60px;
   position: relative;
 }
 
@@ -1470,6 +1470,7 @@ h1 .script {
 /* ================= DESKTOP ================= */
 .gallery {
   padding: 80px 80px;
+  margin-top: 80px;
 }
 
 /* GRID */
